@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Weather Ap</title>
+	<link rel="stylesheet" type="text/css" href="WeatherAp.css">
+	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+
+		$("form").submit(function(){
+
+			var CityName = $("#CityName").val();
+
+			var url = "http://api.openweathermap.org/data/2.5/weather?q=" + CityName + "&APPID=8860752bd66bbafe392f03b38c570be8";
+			$.get(url, function(resp){
+				console.log(resp);
+
+				var CityActual = resp.name;
+				var Temp = Math.floor((resp.main.temp * 9/5)-459.67);
+				var Wind = resp.wind.speed;
+				var Humid = resp.main.humidity;
+				
+				var DateTime = resp.sys.sunset;
+				var D = new Date(DateTime);
+
+				$("#RightSide").append("<table><tr><td>Searched Term: "+CityName+"</td></tr><tr><td id='C'>City Found: "+CityActual+"</td></tr><tr><td>Temp: "+Temp+"(F)</td></tr><tr><td>Humidity: "+Humid+"%</td></tr><tr><td>Wind Speed: "+Wind+"(mph)</td></tr><tr><td>Sunset: "+D+"</td></tr></table>");
+			})
+
+			console.log(url);
+			alert('Submitted!');
+			return false;
+		})
+	})
+
+	</script>
+</head>
+<body>
+<div id="wrapper">
+
+	<div id="LeftSide">
+		<form>
+			City: <input type="text" name="City" id="CityName">
+			<button id="Submit">Submit</button>
+		</form>
+	</div>
+
+
+
+	<div id="RightSide">
+
+
+	</div>
+
+</div>
+</body>
+</html>

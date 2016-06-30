@@ -1,0 +1,38 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+div#wrapper{
+	width: 800px;
+	height: 800px;
+	margin: 0px auto;
+	background-color: transparent;
+}
+div#LeftSide, div#RightSide{
+	display: inline-block;
+	vertical-align: top;
+}
+div#LeftSide{
+	width: 200px;
+	height: 200px;
+	background-color: transparent;
+}
+div#RightSide{
+	width: 550px;
+	height: 500px;
+	background-color: transparent;
+}
+table{
+	border: 2px black solid;
+	margin: 15px;
+
+}
+#C{
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	color: red;
+}
+form{
+	margin: 10px;
+}
