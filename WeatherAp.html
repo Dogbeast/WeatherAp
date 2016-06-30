@@ -21,9 +21,9 @@
 				var Temp = Math.floor((resp.main.temp * 9/5)-459.67);
 				var Wind = resp.wind.speed;
 				var Humid = resp.main.humidity;
-				
+
 				var DateTime = resp.sys.sunset;
-				var D = new Date(DateTime);
+				var D = new Date(DateTime*1000);
 
 				$("#RightSide").append("<table><tr><td>Searched Term: "+CityName+"</td></tr><tr><td id='C'>City Found: "+CityActual+"</td></tr><tr><td>Temp: "+Temp+"(F)</td></tr><tr><td>Humidity: "+Humid+"%</td></tr><tr><td>Wind Speed: "+Wind+"(mph)</td></tr><tr><td>Sunset: "+D+"</td></tr></table>");
 			})
